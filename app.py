@@ -51,7 +51,7 @@ app = Flask(__name__)
 def call():
     database = db.reference()
     #today
-    dateNow = datetime.datetime.now()+ timedelta(hours=7)
+    dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
     bulan = int(dateNow.split("-")[1])
     driver = webdriver.PhantomJS();
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
