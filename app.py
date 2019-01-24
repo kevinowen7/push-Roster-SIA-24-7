@@ -59,13 +59,13 @@ def call():
     #open driver
     driver = webdriver.PhantomJS();
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
-    
+                
     # loop per 31 hari dari hari ini
     hariLoop=0
     while(hariLoop<31):
         lt = 1
         while lt<6:
-            dateNext = datetime.date(tahunNow,bulanNow,hariNow)+ timedelta(days=hariLoop)
+            dateNext = str(datetime.date(tahunNow,bulanNow,hariNow)+ timedelta(days=hariLoop))
             tahun = int(dateNext.split("-")[0])
             bulan = int(dateNext.split("-")[1])
             tgl = int(dateNext.split("-")[2])
@@ -75,7 +75,7 @@ def call():
             select = Select(driver.find_element_by_name("bln"))
             select.select_by_value(str(bulan))
             select = Select(driver.find_element_by_name("thn"))
-            select.select_by_value(tahun)
+            select.select_by_value(str(tahun))
             select = Select(driver.find_element_by_name("lantai"))
             select.select_by_value(str(lt))
             driver.find_element_by_name("cmd").click()
@@ -211,6 +211,7 @@ def call():
                                     "Jam": lama_matkul
                                     }
                                 }) 
+                        
             lt=lt+1
         hariLoop=hariLoop+1 
     driver.close()
