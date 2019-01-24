@@ -65,7 +65,7 @@ def call():
         tahun = int(dateLoop.split("-")[0])
         bulan = int(dateLoop.split("-")[1])
         hari = int(dateLoop.split("-")[2])
-        dateNext = datetime.date(tahun,bulan,hari)
+        dateNext = datetime.date(tahun,bulan,hari)+ timedelta(days=1)
         database.update({"dateLoop" : str(dateNext)})
     return "aaaa"
 
