@@ -39,8 +39,6 @@ firebase_admin.initialize_app(cred,{
     'databaseURL' : 'https://minabot-aceess.firebaseio.com/'
 })
 
-#time
-now = datetime.datetime.today()
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -52,10 +50,12 @@ app = Flask(__name__)
 
 def call():
     database = db.reference()
-
+    #today
+    dateNow = datetime.datetime.now()+ timedelta(hours=7)
+    bulan = int(dateNow.split("-")[1])
     driver = webdriver.PhantomJS();
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
-    bulan = 1
+
     if (bulan==1)or(bulan==3)or(bulan==5)or(bulan==7)or(bulan==8)or(bulan==10)or(bulan==12):
         tgl = 1;
         while(tgl<=31):
