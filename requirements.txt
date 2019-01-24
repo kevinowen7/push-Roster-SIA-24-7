@@ -1,0 +1,7 @@
+Flask==0.10.1
+beautifulsoup4==4.4.0
+bs4
+selenium
+requests
+firebase_admin
+line-bot-sdk
