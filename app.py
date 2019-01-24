@@ -56,6 +56,10 @@ def call():
     bulanNow = int(dateNow.split("-")[1])
     hariNow = int(dateNow.split("-")[2])
     
+    #open driver
+    driver = webdriver.PhantomJS();
+    driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
+    
     # loop per 31 hari dari hari ini
     hariLoop=0
     while(hariLoop<31):
@@ -64,8 +68,6 @@ def call():
         bulan = int(dateNext.split("-")[1])
         hari = int(dateNext.split("-")[2])
         
-        driver = webdriver.PhantomJS();
-        driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
         select = Select(driver.find_element_by_name("tgl"))
         select.select_by_value(str(tgl))
         select = Select(driver.find_element_by_name("bln"))
