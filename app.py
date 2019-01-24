@@ -52,22 +52,6 @@ app = Flask(__name__)
 
 def call():
     database = db.reference()
-    # check loop 24/7
-    loop = database.child("loop").get()
-    dateLoop =  database.child("dateLoop").get()
-    #hari ini 
-    dateNow = datetime.datetime.now()+ timedelta(hours=7)
-    if ((loop==None) or (int(loop)==31)):
-        database.update({"dateLoop" : str(dateNow).split(" ")[0]})
-        database.update({"loop" : 1})
-    else:
-        database.update({"loop" : loop+1})
-        tahun = int(dateLoop.split("-")[0])
-        bulan = int(dateLoop.split("-")[1])
-        hari = int(dateLoop.split("-")[2])
-        dateNext = datetime.date(tahun,bulan,hari)+ timedelta(days=1)
-        database.update({"dateLoop" : str(dateNext)})
-    return "aaaa"
 
     driver = webdriver.PhantomJS();
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
