@@ -70,7 +70,7 @@ def call():
                 select = Select(driver.find_element_by_name("lantai"))
                 select.select_by_value(str(lt))
                 driver.find_element_by_name("cmd").click()
-                return "suksessss"
+
                 database1 = database.child("2019/"+str(bulan)+"/"+str(tgl)+"/lantai:"+str(lt))
                 soup = BeautifulSoup(driver.page_source,'html.parser')
                 x = soup.find_all("tbody")
@@ -89,6 +89,7 @@ def call():
                 Lruangan = []
                 loop=5
                 j=0
+                return "suksessss"
                 while loop<31:
                     p1 = str(x[9]).split("<tr>")[loop]
                     jam = p1.split("</td>")[0].split('"')[12].split("<")[0].split(">")[1]
