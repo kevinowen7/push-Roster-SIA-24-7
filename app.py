@@ -134,6 +134,7 @@ def call():
                     j=j+1
                 print(Lruangan)
                 print(jadwal)
+                return "suksessss"
                 #set array jam
                 set1 = 0
                 while set1<26:
@@ -202,7 +203,6 @@ def call():
                                     })
                 lt=lt+1
             tgl=tgl+1
-            return "suksessss"
     else:
         if (bulan==2):
             tgl = 1;
