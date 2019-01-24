@@ -59,6 +59,7 @@ def call():
     dateNow = datetime.datetime.now()+ timedelta(hours=7)
     if ((loop==None) or (int(loop)==31)):
         database.update({"dateLoop" : str(dateNow).split(" ")[0]})
+        database.update({"loop" : 1})
     else:
         database.update({"loop" : loop+1})
         tahun = int(dateLoop.split("-")[0])
