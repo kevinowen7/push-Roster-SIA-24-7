@@ -54,7 +54,7 @@ def call():
     database = db.reference()
     # check loop 24/7
     loop = database.child("loop").get()
-    dateLoop =  database.child("dateLoop")
+    dateLoop =  database.child("dateLoop").get()
     #hari ini 
     dateNow = datetime.datetime.now()+ timedelta(hours=7)
     if ((loop==None) or (int(loop)==31)):
