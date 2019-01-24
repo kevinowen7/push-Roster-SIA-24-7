@@ -70,7 +70,7 @@ def call():
                 select = Select(driver.find_element_by_name("lantai"))
                 select.select_by_value(str(lt))
                 driver.find_element_by_name("cmd").click()
-
+                return "suksessss"
                 database1 = database.child("2019/"+str(bulan)+"/"+str(tgl)+"/lantai:"+str(lt))
                 soup = BeautifulSoup(driver.page_source,'html.parser')
                 x = soup.find_all("tbody")
@@ -134,7 +134,6 @@ def call():
                     j=j+1
                 print(Lruangan)
                 print(jadwal)
-                return "suksessss"
                 #set array jam
                 set1 = 0
                 while set1<26:
