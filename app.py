@@ -58,7 +58,7 @@ def call():
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
     bulan = 1
     if (bulan==1)or(bulan==3)or(bulan==5)or(bulan==7)or(bulan==8)or(bulan==10)or(bulan==12):
-        tgl = 1;
+        tgl = 7;
         while(tgl<=31):
             lt = 1
             while lt<6:
