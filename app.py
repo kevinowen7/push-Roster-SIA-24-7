@@ -51,6 +51,7 @@ app = Flask(__name__)
 
 
 def call():
+    database = db.reference()
     #time
     dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
     driver = webdriver.PhantomJS();
@@ -74,7 +75,7 @@ def call():
                 database1 = database.child("2019/"+str(bulan)+"/"+str(tgl)+"/lantai:"+str(lt))
                 soup = BeautifulSoup(driver.page_source,'html.parser')
                 x = soup.find_all("tbody")
-                return "suksessss"
+                
                 tempat = str(x[9]).split("<tr>")[4]
                 w = tempat.split("<tbody>")[1]
                 #tempat
@@ -204,6 +205,7 @@ def call():
                                     })
                 lt=lt+1
             tgl=tgl+1
+            return "wwwww"
     else:
         if (bulan==2):
             tgl = 1;
