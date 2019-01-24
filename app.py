@@ -79,11 +79,11 @@ def call():
             select = Select(driver.find_element_by_name("lantai"))
             select.select_by_value(str(lt))
             driver.find_element_by_name("cmd").click()
-
+            return str(tgl)
             database1 = database.child(str(tahun)+"/"+str(bulan)+"/"+str(tgl)+"/lantai:"+str(lt))
             soup = BeautifulSoup(driver.page_source,'html.parser')
             x = soup.find_all("tbody")
-            return str(tgl)
+
             tempat = str(x[9]).split("<tr>")[4]
             w = tempat.split("<tbody>")[1]
             #tempat
