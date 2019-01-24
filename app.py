@@ -57,7 +57,7 @@ def call():
     dateLoop =  database.child("dateLoop")
     if ((loop==None) or (loop==31)):
         dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
-        dateLoop.update({dateNow})
+        dateLoop.update({"date" : dateNow})
     return "aaaa"
 
     driver = webdriver.PhantomJS();
