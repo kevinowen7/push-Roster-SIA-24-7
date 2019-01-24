@@ -52,8 +52,14 @@ app = Flask(__name__)
 
 def call():
     database = db.reference()
-    #time
-    dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
+    # check loop 24/7
+    loop = database.child("loop").get()
+    dateLoop =  database.child("dateLoop")
+    if ((loop==None) or (loop==31)):
+        dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
+        dateLoop.update({dateNow})
+    return "aaaa"
+
     driver = webdriver.PhantomJS();
     driver.get('https://akademik.ithb.ac.id/default.php?mod=roster%20ruangan')
     bulan = 1
