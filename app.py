@@ -68,7 +68,7 @@ def call():
             dateNext = datetime.date(tahunNow,bulanNow,hariNow)+ timedelta(days=hariLoop)
             tahun = int(dateNext.split("-")[0])
             bulan = int(dateNext.split("-")[1])
-            hari = int(dateNext.split("-")[2])
+            tgl = int(dateNext.split("-")[2])
 
             select = Select(driver.find_element_by_name("tgl"))
             select.select_by_value(str(tgl))
@@ -99,7 +99,7 @@ def call():
             Lruangan = []
             loop=5
             j=0
-            return str(tahun)
+
             while loop<31:
                 p1 = str(x[9]).split("<tr>")[loop]
                 jam = p1.split("</td>")[0].split('"')[12].split("<")[0].split(">")[1]
