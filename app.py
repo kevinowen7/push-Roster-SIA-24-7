@@ -55,9 +55,17 @@ def call():
     # check loop 24/7
     loop = database.child("loop").get()
     dateLoop =  database.child("dateLoop")
-    if ((loop==None) or (loop==31)):
-        dateNow = str(datetime.datetime.now()+ timedelta(hours=7)).split(" ")[0]
-        dateLoop.update({"date" : dateNow})
+    #hari ini 
+    dateNow = datetime.datetime.now()+ timedelta(hours=7)
+    if ((loop==None) or (int(loop)==31)):
+        database.update({"dateLoop" : str(dateNow).split(" ")[0]})
+    else:
+        database.update({"loop" : loop+1})
+        tahun = int(dateLoop.split("-")[0])
+        bulan = int(dateLoop.split("-")[1])
+        hari = int(dateLoop.split("-")[2])
+        dateNext = datetime.date(tahun,bulan,hari)
+        database.update({"dateLoop" : str(dateNext)})
     return "aaaa"
 
     driver = webdriver.PhantomJS();
